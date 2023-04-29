@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui-app
+  template:
+    metadata:
+      labels:
+        app: ui-app
+    spec:
+      containers:
+        - name: ui-app
+          image: ui-app:latest
+          ports:
+            - containerPort: 80
+
